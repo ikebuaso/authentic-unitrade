@@ -9,11 +9,16 @@ const BottomNav = () => {
   const pathname = usePathname();
   const { user, isAuthenticated } = useAuthStore();
 
-  // Hide bottom nav on these pages
-  const hideBottomNavRoutes = ['/splash', '/auth/login', '/auth/signup', '/seller/gate'];
-  const shouldHideNav = hideBottomNavRoutes.includes(pathname) || !isAuthenticated;
+  // Only hide bottom nav on these specific pages
+  const hideBottomNavRoutes = ['/splash', '/auth/login', '/auth/signup', '/seller/gate', '/seller/signup', '/listing/create/success' ,'/listing/create' , '/marketplace' ];
+  const shouldHideNav = hideBottomNavRoutes.includes(pathname)|| !isAuthenticated;
 
   if (shouldHideNav) {
+    return null;
+  }
+
+  // Only show if authenticated
+  if (!isAuthenticated) {
     return null;
   }
 

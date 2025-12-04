@@ -130,10 +130,15 @@ const SellerProfilePage = () => {
                 {sellerProducts.map((product) => (
                   <Link key={product.id} href={`/product/${product.id}`}>
                     <div className="border border-gray-200">
-                      <div className="aspect-square bg-gray-100">
-                        <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                          <span className="text-gray-400 text-sm">No Image</span>
-                        </div>
+                      <div className="aspect-square bg-gray-100 flex items-center justify-center overflow-hidden">
+                        <img
+                          src={product.imageUrl}
+                          alt={product.title}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            e.currentTarget.src = 'https://via.placeholder.com/400x400?text=No+Image';
+                          }}
+                        />
                       </div>
                       <div className="p-3">
                         <h3 className="text-black font-medium text-sm mb-1 line-clamp-2">

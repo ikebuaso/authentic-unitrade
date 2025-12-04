@@ -127,10 +127,12 @@ const MarketplacePage = () => {
                   </button>
                   
                   <Link href={`/product/${product.id}`}>
-                    <div className="aspect-square bg-gray-100 relative">
-                      <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                        <span className="text-gray-400 text-sm">No Image</span>
-                      </div>
+                    <div className="aspect-square bg-gray-100 relative overflow-hidden flex items-center justify-center">
+                      <img 
+                        src={product.imageUrl} 
+                        alt={product.title}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                   </Link>
                   
@@ -150,13 +152,13 @@ const MarketplacePage = () => {
                       {product.location}
                     </div>
 
-                    <button
+                    {/*<button
                       onClick={() => handleAddToCart(product)}
                       disabled={localLoading}
                       className="w-full bg-black text-white py-2 text-sm hover:bg-gray-800 transition-colors disabled:bg-gray-400"
                     >
                       Add to Bag
-                    </button>
+                    </button>*/}
                   </div>
                 </div>
               ))}

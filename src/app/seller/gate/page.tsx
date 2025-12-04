@@ -105,7 +105,7 @@ const SellerGatePage = () => {
               <div className="text-center mb-4">
                 <p className="text-gray-500 text-sm mb-2">One-time Fee</p>
                 <p className="text-3xl font-bold text-black">
-                  {formatPrice(1000)}
+                  {formatPrice(2000)}
                 </p>
               </div>
 

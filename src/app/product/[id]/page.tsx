@@ -120,10 +120,15 @@ const ProductDetailPage = () => {
         </div>
 
         {/* Product Image */}
-        <div className="aspect-square bg-gray-100">
-          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-            <span className="text-gray-400">No Image</span>
-          </div>
+        <div className="aspect-square bg-gray-100 flex items-center justify-center overflow-hidden">
+          <img
+            src={product.imageUrl}
+            alt={product.title}
+            className="w-full h-full object-contain"
+            onError={(e) => {
+              e.currentTarget.src = 'https://via.placeholder.com/500x500?text=No+Image';
+            }}
+          />
         </div>
 
         {/* Product Info */}
@@ -176,7 +181,7 @@ const ProductDetailPage = () => {
 
           {/* Action Buttons */}
           <div className="space-y-3">
-            <button
+           {/* <button
               onClick={handleAddToCart}
               disabled={addingToCart}
               className="w-full bg-black text-white py-3 hover:bg-gray-800 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center"
@@ -189,7 +194,7 @@ const ProductDetailPage = () => {
                   Add to Bag
                 </>
               )}
-            </button>
+            </button>*/}
 
             <button 
               onClick={handleContactSeller}

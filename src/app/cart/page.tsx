@@ -75,8 +75,15 @@ const CartPage = () => {
                 {items.map((item) => (
                   <div key={item.id} className="border border-gray-200 p-4">
                     <div className="flex gap-4">
-                      <div className="w-20 h-20 bg-gray-200 rounded flex-shrink-0 flex items-center justify-center">
-                        <span className="text-gray-400 text-xs">No Image</span>
+                      <div className="w-20 h-20 bg-gray-100 rounded flex-shrink-0 flex items-center justify-center overflow-hidden">
+                        <img
+                          src={item.imageUrl}
+                          alt={item.title}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            e.currentTarget.src = 'https://via.placeholder.com/100x100?text=No+Image';
+                          }}
+                        />
                       </div>
                       
                       <div className="flex-1">
